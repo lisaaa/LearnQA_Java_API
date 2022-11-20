@@ -1,7 +1,6 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,5 +20,6 @@ public class GetCookiesTest {
         cookies = response.getCookies();
         System.out.println(cookies);
         assertTrue("Response has 'HomeWork' cookie", cookies.containsKey("HomeWork"));
+        assertEquals("hw_value", cookies.get("HomeWork"));
     }
 }
