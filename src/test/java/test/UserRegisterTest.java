@@ -12,8 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.Test;
-
-
 import java.util.Map;
 
 @Epic("Register cases")
@@ -65,8 +63,7 @@ public class UserRegisterTest extends BaseTestCase {
     @Description("This test check register with long user name")
     @DisplayName("Test negative register user")
     public void testCreateUserWithLongName(){
-        String longUserName = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.,\n" +
-                "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.,Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.,Да, обязательно. Всем самокатов! И Москве, и Московской области";
+        String longUserName = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010 Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.,Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.,Да, обязательно. Всем самокатов! И Москве, и Московской области";
         Map<String, String> userData = DateGenerator.getUserData();
         userData.replace("username",longUserName);
         Response responseCreateAuth = apiCoreRequests.makePostRequest(
