@@ -14,7 +14,7 @@ public class ApiCoreRequests {
     public Response makeGetRequest(String url, String token, String cookie ){
         return given()
                 .filter(new AllureRestAssured())
-                .header(new Header("x-csrt-token",token))
+                .header(new Header("x-csrf-token",token))
                 .cookie("auth_sid",cookie)
                 .get(url)
                 .andReturn();
@@ -32,6 +32,13 @@ public class ApiCoreRequests {
         return given()
                 .filter(new AllureRestAssured())
                 .header(new Header("x-csrt-token",token))
+                .get(url)
+                .andReturn();
+    }
+    @Step("Make a GET-request with token")
+    public Response makeGetRequestWithoutTokenAndCookie(String url ){
+        return given()
+                .filter(new AllureRestAssured())
                 .get(url)
                 .andReturn();
     }

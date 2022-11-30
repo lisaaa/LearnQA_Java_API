@@ -1,3 +1,5 @@
+package other;
+
 import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Assert;
 import io.restassured.RestAssured;

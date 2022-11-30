@@ -1,3 +1,5 @@
+package other;
+
 import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;

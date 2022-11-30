@@ -1,3 +1,5 @@
+package other;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lib.Assertions;
