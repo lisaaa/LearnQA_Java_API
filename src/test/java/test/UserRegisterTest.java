@@ -23,7 +23,7 @@ public class UserRegisterTest extends BaseTestCase {
     @Description("This test check register with existing email")
     @DisplayName("Test negative register user")
     public void testCreateUserWithExistingEmail(){
-        Map<String, String> userData = DateGenerator.getUserData();
+        Map<String, String> userData = DateGenerator.getRegistrationData();
         userData.replace("email","vinkotov@example.com");
        Response responseCreateAuth = apiCoreRequests.makePostRequest(
                 "https://playground.learnqa.ru/api/user/"
@@ -37,7 +37,7 @@ public class UserRegisterTest extends BaseTestCase {
     @DisplayName("Test negative register user")
     public void testCreateUserWithIncorrectEmail(){
 
-        Map<String, String> userData = DateGenerator.getUserData();
+        Map<String, String> userData = DateGenerator.getRegistrationData();
         userData.replace("email","vinkotovexample.com");
         Response responseCreateAuth = apiCoreRequests.makePostRequest(
                 "https://playground.learnqa.ru/api/user/"
@@ -50,7 +50,7 @@ public class UserRegisterTest extends BaseTestCase {
     @Description("This test check register with short user name")
     @DisplayName("Test negative register user")
     public void testCreateUserWithShortName(){
-        Map<String, String> userData = DateGenerator.getUserData();
+        Map<String, String> userData = DateGenerator.getRegistrationData();
         userData.replace("username","t");
         Response responseCreateAuth = apiCoreRequests.makePostRequest(
                 "https://playground.learnqa.ru/api/user/"
@@ -64,7 +64,7 @@ public class UserRegisterTest extends BaseTestCase {
     @DisplayName("Test negative register user")
     public void testCreateUserWithLongName(){
         String longUserName = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010 Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.,Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.,Да, обязательно. Всем самокатов! И Москве, и Московской области";
-        Map<String, String> userData = DateGenerator.getUserData();
+        Map<String, String> userData = DateGenerator.getRegistrationData();
         userData.replace("username",longUserName);
         Response responseCreateAuth = apiCoreRequests.makePostRequest(
                 "https://playground.learnqa.ru/api/user/"
@@ -80,7 +80,7 @@ public class UserRegisterTest extends BaseTestCase {
     @Description("This test check register user without some field")
     @DisplayName("Test negative register user")
     public void testCreateUserWithoutFields(String key){
-        Map<String, String> userData = DateGenerator.getUserData();
+        Map<String, String> userData = DateGenerator.getRegistrationData();
         userData.remove(key);
         System.out.println(userData);
         Response responseCreateAuth = apiCoreRequests.makePostRequest(
