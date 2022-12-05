@@ -1,6 +1,9 @@
 package test;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -19,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class UserEditTest extends BaseTestCase {
     ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     @Description("This test check edit user")
     @DisplayName("Test positive edit user")
     public void testEditJustCreatedTest(){
@@ -74,6 +78,8 @@ public class UserEditTest extends BaseTestCase {
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Base support for bdd annotations")
     @Description("This test check edit user without authorization")
     @DisplayName("Test negative edit user")
     public void testEditUserWithoutAuthTest(){

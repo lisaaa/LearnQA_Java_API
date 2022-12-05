@@ -1,6 +1,6 @@
 package test;
 
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import lib.ApiCoreRequests;
 import lib.Assertions;
@@ -17,6 +17,9 @@ public class UserDeleteTest extends BaseTestCase {
 
     ApiCoreRequests apiCoreRequests = new ApiCoreRequests();
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @TmsLink("test-1")
+    @Story("Base support for bdd annotations")
     @Description("This test delete user by id")
     @DisplayName("Test positive delete user test")
     public void testDeleteNewUserTest(){
@@ -66,6 +69,8 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Severity(SeverityLevel.MINOR)
+    @TmsLink("test-2")
     @Description("This test delete exist user by id")
     @DisplayName("Test negative delete user test")
     public void testDeleteExistUserTest(){
@@ -107,6 +112,8 @@ public class UserDeleteTest extends BaseTestCase {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
+    @TmsLink("test-3")
     @Description("This test delete another user by id")
     @DisplayName("Test negative delete user test")
     public void testDeleteAnotherUserTest(){
